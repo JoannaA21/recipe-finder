@@ -18,7 +18,7 @@ const SearchRecipe = ( {query, setQuery, onSearchRecipes} ) => {
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        placeholder='Enter meal name or meal category'
+                        placeholder='Enter meal name'
                         className="search"
                     />
                     <button type='submit' className='btnSearch'>Search</button>

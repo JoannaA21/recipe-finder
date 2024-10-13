@@ -9,6 +9,7 @@ const AlphabetFilter = ({ filterByLetter }) => {
     return(
         <>
             <div>
+                <h3>AlphabetFilter</h3>
                 {/* Map over the 'letters' array to create a button for each letter. */}
                 {letters.map((letter) => (
                      // Use 'key' for each button to ensure unique identification in the list.
