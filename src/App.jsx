@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import './styles/App.css';
-import onSearchRecipes from './components/SearchRecipe';
+import SearchRecipe from './components/SearchRecipe';
 import IngredientFilter from './components/IngredientFilter';
 import CategoryList from './components/CategoryList';
+import MealList from './components/MealList';
+import AlphabetFilter from './components/AlphabetFilter';
 
 function App() {
   const [query, setQuery] = useState(''); // query (user’s search input)
@@ -11,6 +14,7 @@ function App() {
   const [category, setCategories] = useState([]); // categories (list of meal categories)
   const [ingredients, setIngredients] = useState([]); // ingredients (list of ingredients)
 
+  const [showCategories, setShowCategories] = useState(false);
 
   //List of all possible categories
   useEffect(() => {
@@ -52,6 +56,8 @@ function App() {
       alert("Enter meal name or meal category in the input field.")
     }else{
       setQuery(item);
+      fetchByMealName(item);
+      // console.log(fetchByMealName(item))
     }
   }
 
@@ -65,7 +71,7 @@ function App() {
     setQuery(ingredient);
   };
 
-  // Search Recipes by Meal Name:   // Update the meals state with the results.
+  // Search Recipes by Meal Name: Update the meals state with the results.
   const fetchByMealName = async(mealName) => {
         try{
           const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`);
@@ -93,7 +99,7 @@ function App() {
   const fetchByCategoryName = async(categoryName) => {
     try{
       const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`);
-      setMeals(response.data.meals | []);
+      setMeals(response.data.meals || []);
     }catch(error){
       console.log("Filter by Category Name: Failed fethcing data.");
       setMeals([]);
@@ -105,7 +111,7 @@ function App() {
   const fetchListMealsByFirstLetter = async(letter) => {
     try{
       const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`);
-      setMeals(response.data.meals);
+      setMeals(response.data.meals || []);
     }catch(error){
       console.log("List Meals by First Letter: Failed fetching data.");
       setMeals([]);
@@ -113,18 +119,61 @@ function App() {
   }
 
 
+  const filterByLetter = (letter) => {
+    // Implement the function to filter meals by the selected letter.
+    console.log(`Filtering by letter: ${letter}`);
+};
+
     return (
     <>
-      <h1>Recipe Search App</h1>
-      <onSearchRecipes query={query} setQuery={setQuery}  onSearchRecipes={handleSearch}/>
-      {/* <IngredientFilter ingredients={ingredients} filterByIngredient={handleFilterByIngredient}/> */}
-      {/* <CategoryList categories={category} filterByCategory={handleFilterByCategory} /> */}
-      </>
+      <Router>
+        <h1>Recipe Search App</h1>
+{/*         
+        {!showCategories && (
+          <>
+            <Link to="/categories">
+              <button>Meals by Category</button>
+            </Link>
+          </>
+        )} */}
+
+        <button onClick={() => setShowCategories(!showCategories)}>
+          {showCategories ? <Link to='/categories'>Meals By Category</Link> :
+          <Link to='/'>Back</Link> }
+        </button>
+      
+        <Routes>
+
+            <Route path='/' element={
+              <SearchRecipe query={query} setQuery={setQuery}  onSearchRecipes={handleSearch}/>
+            } />
+
+            <Route path="categories" element={
+              <CategoryList categories={category} filterByCategory={fetchByCategoryName} />
+            } />
+
+            <Route path='letter' element={
+              <AlphabetFilter filterByLetter={fetchListMealsByFirstLetter} />
+            } />
+
+        </Routes>
+       
+          <div className="meal-results">
+            {meals.length > 0 ? (
+              <MealList meals={meals} />
+            ) : (
+              <p>No meals found.</p>
+            )}
+          </div>
+          
+          <AlphabetFilter filterByLetter={fetchListMealsByFirstLetter} />
+
+      </Router>
+    </>
   )
 }
 
 export default App
-
 
 
 // 5. Add Functionality to Components

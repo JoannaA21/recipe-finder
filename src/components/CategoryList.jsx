@@ -5,12 +5,13 @@ import React from 'react';
 
     return(
         <>
-            <h1>Meal Categories</h1>
-            <ul>
+            <h3>Meal Categories</h3>
+            <ul className="meal-categories">
                 {categories.map((category) => (
-                    <li key={category.idCategory}  
-                        onClick={() => filterByCategory(category.strCategory)}>
-                    {category.strCategory}
+                    <li key={category.idCategory}> 
+                        <button  onClick={() => filterByCategory(category.strCategory)}>
+                            {category.strCategory}
+                        </button>        
                     </li>
                 ))}
             </ul>

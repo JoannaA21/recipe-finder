@@ -13,13 +13,16 @@ const SearchRecipe = ( {query, setQuery, onSearchRecipes} ) => {
     return(
         <>
             <form onSubmit={handleSubmit}>
-                <input 
-                    type="text"
-                    value={input}
-                    onChange={(e) => setIput(e.target.value)}
-                    placeholder='Enter meal name or meal category'
-                />
-                <button type='submit'>Search</button>
+                <div className='search-container'>
+                    <input 
+                        type="text"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder='Enter meal name or meal category'
+                        className="search"
+                    />
+                    <button type='submit' className='btnSearch'>Search</button>
+                </div>
             </form>
         </>
     )

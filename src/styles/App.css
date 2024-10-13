@@ -5,3 +5,74 @@
   text-align: center;
 }
 
+body{
+  background-color: #FD8B51;
+}
+.meal-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.meal-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.meal-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.meal-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+
+.meal-categories {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping onto multiple lines */
+  list-style-type: none; /* Removes bullet points from the list */
+  padding: 0;
+  gap: 10px; /* Adds space between buttons */
+  justify-content: center; /* Centers the content */
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+
+.search {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid white;
+  border-radius: 100px;
+  max-width: 400px;
+
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: white;
+  border: none;
+  border-radius: 100px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #4b9ea4;
+  color: white;
+}
