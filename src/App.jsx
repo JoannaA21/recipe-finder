@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./index.css";
-import "./styles/App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import SearchRecipe from "./components/SearchRecipe";
 import CategoryList from "./components/CategoryList";
 import MealList from "./components/MealList";
 import AlphabetFilter from "./components/AlphabetFilter";
+import Landing from "./components/Landing";
 
 function App() {
   const [query, setQuery] = useState(""); // query (user’s search input)
@@ -88,12 +85,12 @@ function App() {
 
   return (
     <>
-      <h1>Recipe Search App</h1>
-      <SearchRecipe
+      <Landing
         query={query}
         setQuery={setQuery}
         onSearchRecipes={handleSearch}
       />
+
       <CategoryList
         categories={category}
         filterByCategory={fetchByCategoryName}

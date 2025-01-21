@@ -22,19 +22,19 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
     <>
       <h3>Meal Categories</h3>
 
-      <ul className="meal-categories">
+      <ul className="">
         <button onClick={handlePrev} disabled={startIndex === 0}>
-          <i class="h1 bi bi-arrow-left-circle-fill"></i>
+          Left
         </button>
         {categories
           .slice(startIndex, startIndex + itemsToShow)
           .map((category) => (
-            <li key={category.idCategory} className="category-item ">
+            <li key={category.idCategory} className="">
               <button onClick={() => filterByCategory(category.strCategory)}>
                 <img
                   src={category.strCategoryThumb} // Assuming this property holds the image URL
                   alt={category.strCategory}
-                  className="category-image"
+                  className=""
                 />
                 <p>{category.strCategory}</p>
               </button>
@@ -44,7 +44,7 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
           onClick={handleNext}
           disabled={startIndex + itemsToShow >= categories.length}
         >
-          <i class="h1 bi bi-arrow-right-circle-fill"></i>
+          Right
         </button>
       </ul>
     </>
