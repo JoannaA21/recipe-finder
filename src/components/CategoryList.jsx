@@ -25,6 +25,7 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
           Meal Categories
         </p>
         <ul className="flex text-xs justify-center items-center">
+          {/* Button previous */}
           <button onClick={handlePrev} disabled={startIndex === 0}>
             <svg
               class="w-6 h-6 sm:w-8 sm:h-8 text-lighterlunargreen hover:text-lunargreen sm:mx-3"
@@ -44,23 +45,29 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
               />
             </svg>
           </button>
+
+          {/* Categories */}
           {categories
             .slice(startIndex, startIndex + itemsToShow)
             .map((category) => (
               <li
                 key={category.idCategory}
-                className=" sm:transition-transform sm:duration-500 sm:ease-in-out sm:hover:scale-110 "
+                className="sm:transition-transform sm:duration-500 sm:ease-in-out sm:hover:scale-110 "
               >
                 <button onClick={() => filterByCategory(category.strCategory)}>
                   <img
-                    src={category.strCategoryThumb} // Assuming this property holds the image URL
+                    src={category.strCategoryThumb}
                     alt={category.strCategory}
                     className="w-full h-auto"
                   />
-                  <p>{category.strCategory}</p>
+                  <p className="mt-3 sm:mt-5 sm:text-sm md:text-base lg:text-lg xl:text-xl text-lunargreen">
+                    {category.strCategory}
+                  </p>
                 </button>
               </li>
             ))}
+
+          {/* Button next */}
           <button
             onClick={handleNext}
             disabled={startIndex + itemsToShow >= categories.length}
