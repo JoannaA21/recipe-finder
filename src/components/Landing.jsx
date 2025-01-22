@@ -5,7 +5,7 @@ import SearchRecipe from "./SearchRecipe";
 const Landing = ({ query, setQuery, onSearchRecipes }) => {
   return (
     <div
-      className="relative w-full h-screen bg-cover bg-center"
+      className="relative max-w-[80rem] mx-auto w-full h-screen bg-cover bg-center"
       style={{
         backgroundImage: `url(${hero})`,
       }}
@@ -14,9 +14,9 @@ const Landing = ({ query, setQuery, onSearchRecipes }) => {
       <div className="absolute inset-0 bg-black opacity-40"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center w-full h-full text-white">
+      <div className="relative z-10 flex max-w-[80rem] mx-auto items-center justify-center w-full h-full text-white">
         <div className="text-center">
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-serif font- mb-10">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-serif font- mb-10 cursor-default">
             Recipe Finder
           </h1>
           <SearchRecipe

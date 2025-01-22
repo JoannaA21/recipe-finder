@@ -95,7 +95,7 @@ function App() {
         categories={category}
         filterByCategory={fetchByCategoryName}
       />
-      <AlphabetFilter filterByLetter={fetchListMealsByFirstLetter} />
+      {/* <AlphabetFilter filterByLetter={fetchListMealsByFirstLetter} /> */}
 
       <div className="meal-results">
         {meals.length > 0 ? <MealList meals={meals} /> : <p>No meals found.</p>}
