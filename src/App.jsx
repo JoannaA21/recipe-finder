@@ -5,6 +5,7 @@ import CategoryList from "./components/CategoryList";
 import MealList from "./components/MealList";
 import AlphabetFilter from "./components/AlphabetFilter";
 import Landing from "./components/Landing";
+import ScrollButton from "./components/ScrollButton";
 
 function App() {
   const [query, setQuery] = useState(""); // query (user’s search input)
@@ -97,9 +98,10 @@ function App() {
       />
       {/* <AlphabetFilter filterByLetter={fetchListMealsByFirstLetter} /> */}
 
-      <div className="meal-results">
+      <div>
         {meals.length > 0 ? <MealList meals={meals} /> : <p>No meals found.</p>}
       </div>
+      {/* <ScrollButton /> */}
     </>
   );
 }
