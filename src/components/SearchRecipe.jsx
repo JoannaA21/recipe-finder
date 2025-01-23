@@ -10,8 +10,8 @@ const SearchRecipe = ({ query, setQuery, onSearchRecipes }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="flex space-x-3">
+      <form onSubmit={handleSubmit} className="m-1">
+        <div className="flex space-x-2">
           <input
             type="text"
             value={query}

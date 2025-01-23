@@ -20,7 +20,7 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
 
   return (
     <>
-      <div className="flex flex-col font-serif max-w-[80rem] mx-auto items-center">
+      <div className="flex flex-col my-10 font-serif max-w-[80rem] mx-auto items-center">
         <p className="my-6 sm:my-10 lg:my-14 text-2xl md:text-3xl lg:text-4xl font-semibold text-lunargreen font-serif">
           Meal Categories
         </p>
@@ -28,7 +28,7 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
           {/* Button previous */}
           <button onClick={handlePrev} disabled={startIndex === 0}>
             <svg
-              class="w-6 h-6 sm:w-8 sm:h-8 text-lighterlunargreen hover:text-lunargreen sm:mx-3"
+              className="w-6 h-6 sm:w-8 sm:h-8 text-lighterlunargreen hover:text-lunargreen sm:mx-3"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -38,9 +38,9 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m15 19-7-7 7-7"
               />
             </svg>
@@ -73,7 +73,7 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
             disabled={startIndex + itemsToShow >= categories.length}
           >
             <svg
-              class="w-6 h-6 sm:w-8 sm:h-8 text-lighterlunargreen hover:text-lunargreen sm:mx-3"
+              className="w-6 h-6 sm:w-8 sm:h-8 text-lighterlunargreen hover:text-lunargreen sm:mx-3"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -83,9 +83,9 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m9 5 7 7-7 7"
               />
             </svg>

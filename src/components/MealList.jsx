@@ -3,7 +3,7 @@ import React from "react";
 import MealCard from "./MealCard";
 
 const MealList = ({ meals }) => (
-  <div className="">
+  <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
     {meals.length ? (
       meals.map((meal) => <MealCard key={meal.idMeal} meal={meal} />)
     ) : (
