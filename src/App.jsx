@@ -96,11 +96,13 @@ function App() {
         categories={category}
         filterByCategory={fetchByCategoryName}
       />
-      {/* <AlphabetFilter filterByLetter={fetchListMealsByFirstLetter} /> */}
 
       <div>
         {meals.length > 0 ? <MealList meals={meals} /> : <p>No meals found.</p>}
       </div>
+
+      {/* <AlphabetFilter filterByLetter={fetchListMealsByFirstLetter} /> */}
+
       {/* <ScrollButton /> */}
     </>
   );

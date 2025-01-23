@@ -27,7 +27,8 @@ const MealList = ({ meals }) => {
 
       {/* Meals with instructions and YouTube links */}
       <div>
-        <div className="w-full">
+        {/* <div className="mx-auto w-full sm:w-2/5"> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {searchedList.length &&
             searchedList.map((meal) => (
               <MealCard key={meal.idMeal} meal={meal} />
