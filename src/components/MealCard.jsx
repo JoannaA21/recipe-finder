@@ -31,7 +31,7 @@ const MealCard = ({ meal }) => {
           <Typography
             variant="h5"
             color="blue-gray"
-            className="mb-2 text-center text-lunargreen"
+            className="mb-2 text-center text-lunargreen font-serif"
           >
             {meal.strMeal}
           </Typography>
@@ -39,7 +39,7 @@ const MealCard = ({ meal }) => {
 
         {/* Instructions button */}
         {meal.strInstructions && (
-          <CardFooter className="flex md:px-1 lg:px-6 mx-auto pt-0 space-x-2">
+          <CardFooter className="flex md:px-1 lg:px-6 mx-auto pt-0 space-x-2 font-serif">
             <button
               type="button"
               onClick={handleOpen}

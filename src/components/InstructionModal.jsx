@@ -59,20 +59,20 @@ const InstructionModal = ({ meal, handleOpen, open }) => {
               <Typography
                 variant="h4"
                 color="blue-gray"
-                className="mb-2 text-lunargreen"
+                className="mb-2 text-lunargreen font-serif"
               >
                 {meal.strMeal}
               </Typography>
 
               {/* Modal instruction */}
-              <Typography color="gray" className="mb-12 font-normal">
+              <Typography color="gray" className="mb-12 font-serif">
                 {meal.strInstructions}
               </Typography>
 
               {/* Modal Watch Tutorial button */}
               <Button
                 variant="text"
-                className="absolute bottom-4 right-4 bg-lighterlunargreen hover:bg-lunargreen hover:text-white"
+                className="absolute bottom-4 right-4 font-serif bg-lighterlunargreen hover:bg-lunargreen hover:text-white"
                 aria-label="Open youtube video tutorial"
               >
                 <a
