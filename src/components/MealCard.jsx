@@ -1,6 +1,7 @@
 // MealCard Component: Displays details for a single meal including the image, name, and a brief description.
 
-import React from "react";
+import React, { useState } from "react";
+import InstructionModal from "./InstructionModal";
 import {
   Card,
   CardHeader,
@@ -11,63 +12,66 @@ import {
 } from "@material-tailwind/react";
 
 const MealCard = ({ meal }) => {
-  const formatInstructions = (instructions) => {
-    if (!instructions) {
-      return []; // Return an empty array if instructions are undefined
-    }
-    // return instructions.split(".").filter((step) => step.trim() !== "");
-    return instructions
-      .split(/(?<!\d)\.(?!\d|\w)/) // Split on periods that are not part of decimals or abbreviations
-      .map((step) => step.trim()) // Trim whitespace from each step
-      .filter((step) => step !== ""); // Filter out empty strings
-  };
+  // Open modal when Instruction buttton is clicked
+  const [open, setOpen] = useState(false);
 
-  const MealInstructions = ({ instructions }) => {
-    const steps = formatInstructions(instructions);
-
-    return (
-      <div className="instructions">
-        <p className="text-base font-bold mb-2">Cooking Instructions</p>
-        <ul className="list-decimal pl-5 space-y-2">
-          {steps.map((step, index) => (
-            <li key={index} className="text-gray-700">
-              {step}.
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  };
+  const handleOpen = () => setOpen(!open);
 
   return (
-    <Card className="w-full my-10">
-      <CardHeader color="blue-gray" className="relative h-full bg-white">
-        <img
-          src={meal.strMealThumb}
-          alt={`An image of ${meal.strMeal}`}
-          className="h-full w-full object-cover"
-        />
-      </CardHeader>
-      <CardBody>
-        <Typography variant="h5" color="blue-gray" className="mb-2 text-center">
-          {meal.strMeal}
-        </Typography>
-        {meal.strInstructions && (
-          <Typography className="text-sm">
-            <MealInstructions instructions={meal.strInstructions} />
+    <div>
+      <Card className="w-full my-10 ">
+        <CardHeader color="blue-gray" className="relative h-full bg-white">
+          <img
+            src={meal.strMealThumb}
+            alt={`An image of ${meal.strMeal}`}
+            className="h-full w-full object-cover"
+          />
+        </CardHeader>
+        <CardBody>
+          <Typography
+            variant="h5"
+            color="blue-gray"
+            className="mb-2 text-center text-lunargreen"
+          >
+            {meal.strMeal}
           </Typography>
+        </CardBody>
+
+        {/* Instructions button */}
+        {meal.strInstructions && (
+          <CardFooter className="flex md:px-1 lg:px-6 mx-auto pt-0 space-x-2">
+            <button
+              type="button"
+              onClick={handleOpen}
+              className="px-3 py-1.5 xl:px-5 xl:py-2.5 rounded-lg font-semibold text-black bg-lighterlunargreen hover:bg-lunargreen hover:text-white"
+              aria-label="Open Cooking Instructions Modal"
+              aria-expanded={open}
+            >
+              Instructions
+            </button>
+
+            {/* Watch tutorial button */}
+            <button
+              className="px-3 py-1.5 rounded-lg font-semibold text-black bg-lighterlunargreen hover:bg-lunargreen hover:text-white"
+              aria-label="Open youtube video tutorial"
+            >
+              <a
+                href={meal.strYoutube}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch tutorial
+              </a>
+            </button>
+          </CardFooter>
         )}
-      </CardBody>
-      {meal.strYoutube && (
-        <CardFooter className="pt-0">
-          <Button className="flex mx-auto">
-            <a href={meal.strYoutube} target="_blank" rel="noopener noreferrer">
-              Watch tutorial
-            </a>
-          </Button>
-        </CardFooter>
+      </Card>
+
+      {/* Modal */}
+      {open && (
+        <InstructionModal meal={meal} handleOpen={handleOpen} open={open} />
       )}
-    </Card>
+    </div>
   );
 };
 
