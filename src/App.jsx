@@ -6,6 +6,7 @@ import MealList from "./components/MealList";
 import AlphabetFilter from "./components/AlphabetFilter";
 import Landing from "./components/Landing";
 import ScrollToTop from "./components/ScrollToTop";
+import NoMealFound from "./components/NoMealFound";
 
 function App() {
   const [query, setQuery] = useState(""); // query (user’s search input)
@@ -98,10 +99,10 @@ function App() {
       />
 
       <div>
-        {meals.length > 0 ? <MealList meals={meals} /> : <p>No meals found.</p>}
+        {meals.length > 0 ? <MealList meals={meals} /> : <NoMealFound />}
       </div>
-
       <ScrollToTop />
+
       {/* <AlphabetFilter filterByLetter={fetchListMealsByFirstLetter} /> */}
     </>
   );

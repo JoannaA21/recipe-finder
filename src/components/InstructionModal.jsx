@@ -11,10 +11,10 @@ import {
 
 const InstructionModal = ({ meal, handleOpen, open }) => {
   return (
-    <div className="text-lunargreen">
+    <div className="text-lunargreen ">
       {open && (
         <Dialog
-          className="w-full max-w-[80rem] flex-row"
+          className="w-full max-w-[80rem] flex-row "
           open={true}
           handler={handleOpen}
           animate={{

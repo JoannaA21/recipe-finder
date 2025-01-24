@@ -30,7 +30,7 @@ const SearchRecipe = ({ query, setQuery, onSearchRecipes }) => {
           <button
             onClick={handleClick}
             type="submit"
-            className="px-6 py-3 text-lg lg:px-8 lg:py-5 lg:text-2xl bg-swirl hover:bg-darkerswirl hover:text-white text-white rounded-full"
+            className="px-6 py-3 text-lg lg:px-8 lg:py-5 lg:text-2xl text-black bg-swirl hover:bg-darkerswirl hover:text-white rounded-full"
           >
             Search
           </button>

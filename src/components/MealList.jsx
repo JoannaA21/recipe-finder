@@ -1,6 +1,7 @@
 // MealList Component: Displays a list of meals based on search results or filters.
 import React from "react";
 import MealCard from "./MealCard";
+import ScrollToTop from "./ScrollToTop";
 
 const MealList = ({ meals }) => {
   const categoryList = meals.filter((meal) => !meal.strYoutube);
@@ -14,26 +15,21 @@ const MealList = ({ meals }) => {
     //   )}
     // </div>
 
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 pt-10">
       {/* Meals by selected category */}
-      <div className="mb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {categoryList &&
-            categoryList.map((meal) => (
-              <MealCard key={meal.idMeal} meal={meal} />
-            ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        {categoryList &&
+          categoryList.map((meal) => (
+            <MealCard key={meal.idMeal} meal={meal} />
+          ))}
       </div>
 
       {/* Meals with instructions and YouTube links */}
-      <div>
-        {/* <div className="mx-auto w-full sm:w-2/5"> */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {searchedList.length &&
-            searchedList.map((meal) => (
-              <MealCard key={meal.idMeal} meal={meal} />
-            ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {searchedList.length &&
+          searchedList.map((meal) => (
+            <MealCard key={meal.idMeal} meal={meal} />
+          ))}
       </div>
     </div>
   );

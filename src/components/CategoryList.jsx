@@ -24,7 +24,7 @@ const CategoryList = ({ categories = [], filterByCategory }) => {
         <p className="my-6 sm:my-10 lg:my-14 text-2xl md:text-3xl lg:text-4xl font-semibold text-lunargreen font-serif">
           Meal Categories
         </p>
-        <ul className="flex text-xs justify-center items-center">
+        <ul className="flex text-xs justify-center items-center mb-5">
           {/* Button previous */}
           <button onClick={handlePrev} disabled={startIndex === 0}>
             <svg
