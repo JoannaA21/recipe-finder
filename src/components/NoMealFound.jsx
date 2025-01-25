@@ -38,7 +38,7 @@ const NoMealFound = () => {
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-              <p className="text-white text-5xl font-bold font-serif italic">
+              <p className="text-white text-5xl lg:text-7xl font-bold font-serif italic cursor-default">
                 {img.phrase}
               </p>
             </div>

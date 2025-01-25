@@ -9,7 +9,7 @@ const Footer = () => {
           href="https://www.themealdb.com/api.php"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-400 hover:underline"
+          className="text-lighterlunargreen hover:underline"
         >
           TheMealDB API
         </a>

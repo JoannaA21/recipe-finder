@@ -20,7 +20,7 @@ const MealCard = ({ meal }) => {
   return (
     <div>
       <Card className="w-full my-5">
-        <CardHeader color="blue-gray" className="relative h-56 m-0 ">
+        <CardHeader color="blue-gray" className="relative h-56 m-0">
           <img
             src={meal.strMealThumb}
             alt={`An image of ${meal.strMeal}`}
@@ -31,7 +31,7 @@ const MealCard = ({ meal }) => {
           <Typography
             variant="h5"
             color="blue-gray"
-            className="mb-2 text-center text-lunargreen font-serif"
+            className="mb-2 text-center text-lunargreen font-serif cursor-default"
           >
             {meal.strMeal}
           </Typography>
