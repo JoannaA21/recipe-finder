@@ -1,11 +1,9 @@
-# recipe-search-app
-Recipe Search App using React
+# Description
 
-# React + Vite
+## Recipe Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Recipe Finder is a web application that allows users to search for meals and discover recipes. It fetches data from [TheMealDB API](https://www.themealdb.com/api.php) to provide users with detailed meal information based on their search.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check it out [Recipe Finder](https://japellido-recipe-finder.netlify.app/)
